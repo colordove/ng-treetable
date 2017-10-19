@@ -53,6 +53,11 @@ export class UITreeRow implements OnInit {
         this.treeTable.onRowClick(event, this.node, col);
     }
 
+    tdClicked(data, filed) {
+        const tdValue = this.resolveFieldData(data, filed);
+        this.treeTable.onTdClick.emit(tdValue);
+    }
+
     onRowRightClick(event: MouseEvent) {
         this.treeTable.onRowRightClick(event, this.node);
     }

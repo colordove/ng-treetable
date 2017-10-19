@@ -72,7 +72,7 @@ export class TreeTable {
 
     @Output() onLazyLoad: EventEmitter<any> = new EventEmitter();
 
-    @Output() onTdClick$: EventEmitter<any> = new EventEmitter();
+    @Output() onTdClick: EventEmitter<any> = new EventEmitter();
 
     @ContentChild(Header) header: Header;
 
@@ -91,7 +91,6 @@ export class TreeTable {
     constructor(public renderer:Renderer) { }
     onRowClick(event: MouseEvent, node: TreeNode, col: any)
     {
-        this.onTdClick$.emit(col);
         let eventTarget = (<Element> event.target);
         if(eventTarget.className && eventTarget.className.indexOf('ui-treetable-toggler') === 0) {
             return;
@@ -374,9 +373,6 @@ export class TreeTable {
             this.updateDataToRender(this.filteredValue||this.value);
         }
 
-    }
-    onTdClicked(event) {
-      console.log(event);
     }
 
 

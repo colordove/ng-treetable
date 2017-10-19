@@ -40,25 +40,25 @@ export class AppModule {}
 ````json
 {
     "data":
-    [  
-        {  
-            "data":{  
+    [
+        {
+            "data":{
                 "name":"Andrew",
                 "gender":"Male"
             },
             "children":[
-                {  
-                    "data":{  
+                {
+                    "data":{
                         "name":"Andrewson",
                         "gender":"Male"
                     },
-                    "children":[  
-                        {  
-                            "data":{  
+                    "children":[
+                        {
+                            "data":{
                                 "name":"Eric",
                                 "gender":"Male"
                             }
-                        }                       
+                        }
                     ]
                 }
             ]
@@ -123,3 +123,4 @@ export class AppModule {}
 | onNodeExpand        | event.originalEvent: browser event event.node: Expanded node instance.    | Callback to invoke when a node is expanded.                  |
 | onNodeCollapse      | event.originalEvent: browser event  event.node: Collapsed node instance.  | Callback to invoke when a node is collapsed.                 |
 | onContextMenuSelect | event.originalEvent: browser event  event.node: Selected node instance.   | Callback to invoke when a node is selected with right click. |
+| onTdClick | event.originalEvent: td clicked width col data   | Callback to invoke when a td clicked. |

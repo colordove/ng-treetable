@@ -11,7 +11,7 @@ import { Component } from '@angular/core';
       [value]="nodes.data"
       [globalFilter]="gb"
       [rowStyleClass]="getRowStyleClass"
-      (onTdClick$)="onTdClick($event)"
+      (onTdClick)="onTdClick($event)"
     >
         <ay-column field="name" header="Name"></ay-column>
         <ay-column field="size" header="Size"></ay-column>
