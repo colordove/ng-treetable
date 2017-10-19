@@ -13,50 +13,7 @@ import {PaginatorModule} from "./paginator";
 
 @Component({
     selector: 'ay-treeTable',
-    template: `
-        <div [ngClass]="'ui-treetable ui-widget'" [ngStyle]="style" [class]="styleClass">
-            <div class="ui-treetable-header ui-widget-header" *ngIf="header">
-                <ng-content select="ay-header"></ng-content>
-            </div>
-            <div class="ui-treetable-tablewrapper">
-                <table class="ui-widget-content">
-                    <thead>
-                        <tr class="ui-state-default">
-                            <th #headerCell *ngFor="let col of columns" [ngStyle]="col.style" [class]="col.styleClass" 
-                                [ngClass]="'ui-state-default ui-unselectable-text'"
-                                [style.display]="col.hidden ? 'none' : 'table-cell'">
-                                <span class="ui-column-title" *ngIf="!col.headerTemplate">{{col.header}}</span>
-                                <span class="ui-column-title" *ngIf="col.headerTemplate">
-                                    <ay-columnHeaderTemplateLoader [column]="col"></ay-columnHeaderTemplateLoader>
-                                </span>
-                            </th>
-                        </tr>
-                    </thead>
-                    <tfoot *ngIf="hasFooter()">
-                        <tr>
-                            <td *ngFor="let col of columns" [ngStyle]="col.style" [class]="col.styleClass" [ngClass]="{'ui-state-default':true}">
-                                <span class="ui-column-footer" *ngIf="!col.footerTemplate">{{col.footer}}</span>
-                                <span class="ui-column-footer" *ngIf="col.footerTemplate">
-                                    <ay-columnFooterTemplateLoader [column]="col"></ay-columnFooterTemplateLoader>
-                                </span>
-                            </td>
-                        </tr>
-                    </tfoot>
-                    <tbody pTreeRow *ngFor="let node of dataToRender;let odd = odd;let even=even" 
-                                [node]="node" [level]="0" 
-                                [labelExpand]="labelExpand" [labelCollapse]="labelCollapse"
-                                class="ui-widget-content"
-                                [ngClass]="{'ui-treetable-even':even,'ui-treetable-odd':odd}"
-                    ></tbody>
-                </table>
-            </div>
-            <ay-paginator [rows]="rows" [first]="first" [totalRecords]="totalRecords" [pageLinkSize]="pageLinks" styleClass="ui-paginator-bottom"
-                (onPageChange)="paginate($event)" [rowsPerPageOptions]="rowsPerPageOptions" *ngIf="paginator"></ay-paginator>
-            <div class="ui-treetable-footer ui-widget-header" *ngIf="footer">
-                <ng-content select="ay-footer"></ng-content>
-            </div>
-        </div>
-    `
+    templateUrl: './treetable.html'
 })
 export class TreeTable {
     @Input() paginator: boolean;
@@ -115,6 +72,8 @@ export class TreeTable {
 
     @Output() onLazyLoad: EventEmitter<any> = new EventEmitter();
 
+    @Output() onTdClick$: EventEmitter<any> = new EventEmitter();
+
     @ContentChild(Header) header: Header;
 
     @ContentChild(Footer) footer: Footer;
@@ -130,8 +89,9 @@ export class TreeTable {
     globalFilterFunction: any;
 
     constructor(public renderer:Renderer) { }
-    onRowClick(event: MouseEvent, node: TreeNode)
+    onRowClick(event: MouseEvent, node: TreeNode, col: any)
     {
+        this.onTdClick$.emit(col);
         let eventTarget = (<Element> event.target);
         if(eventTarget.className && eventTarget.className.indexOf('ui-treetable-toggler') === 0) {
             return;
@@ -415,6 +375,10 @@ export class TreeTable {
         }
 
     }
+    onTdClicked(event) {
+      console.log(event);
+    }
+
 
     updateDataToRender(datasource) {
         if((this.paginator || this.virtualScroll) && datasource) {

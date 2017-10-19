@@ -7,7 +7,12 @@ import { Component } from '@angular/core';
     selector: 'app-basic',
     template: `
     <input #gb type="text" pInputText size="50" placeholder="Global Search">
-    <ay-treeTable [value]="nodes.data" [globalFilter]="gb" [rowStyleClass]="getRowStyleClass">
+    <ay-treeTable
+      [value]="nodes.data"
+      [globalFilter]="gb"
+      [rowStyleClass]="getRowStyleClass"
+      (onTdClick$)="onTdClick($event)"
+    >
         <ay-column field="name" header="Name"></ay-column>
         <ay-column field="size" header="Size"></ay-column>
         <ay-column field="type" header="Type"></ay-column>
@@ -98,7 +103,9 @@ export class BasicTreeComponent {
                 }
             ]
     };
-    getRowStyleClass = (data) => {
-        return 123
+    getRowStyleClass = (data) => '';
+
+    onTdClick(event) {
+      console.log(event);
     }
 }

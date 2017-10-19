@@ -181,6 +181,7 @@ export class ColumnBodyTemplateLoader implements OnInit, OnDestroy {
             'rowData': this.rowData,
             'rowIndex': this.rowIndex
         });
+        console.log(this.view);
     }
 
     ngOnDestroy() {
