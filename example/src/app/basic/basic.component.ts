@@ -80,9 +80,9 @@ export class BasicTreeComponent {
                     "children":[
                         {
                             "data":{
-                                "name":"barcelona.jpg",
-                                "size":"90kb",
-                                "type":"Picture"
+                                "name":"100",
+                                "size":"100",
+                                "type":"100"
                             }
                         },
                         {
@@ -105,7 +105,7 @@ export class BasicTreeComponent {
     };
     getRowStyleClass = (data) => '';
 
-    onTdClick(event) {
-      console.log(event);
+    onTdClick(data) {
+      console.log(data);
     }
 }
