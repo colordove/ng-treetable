@@ -2,11 +2,14 @@
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 
 # Tree Table component for Angular
-A tree table component for Angular, based on [Primeng treetable](https://github.com/primefaces/primeng/tree/master/components/treetable).
+A tree table component for Angular, forked from [ng-treetable](https://www.npmjs.com/package/ng-treetable)
+
+# Please do not use this component! please use `ng-treetable` component, this component just add td click event for special demand。
+# 请不要使用该组件，请使用`ng-treetable`组件，这个组件仅为特定项目添加了点击事件。
 
 ## Getting Started
 ```bash
-npm install --save ng-treetable
+npm install --save color_cat-ngx-treetables
 ```
 
 ## Configuration

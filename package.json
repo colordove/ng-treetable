@@ -1,24 +1,14 @@
 {
   "name": "color_cat-ngx-treetable",
   "author": "color_cat <hujian201@gmail.com>",
-  "version": "1.2.3",
+  "version": "0.0.1aplha",
   "description": "Tree table component for angular 2+.",
   "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/colordove/ng-treetable.git"
   },
-  "keywords": [
-    "angular",
-    "angular2",
-    "angular 2",
-    "angular tree table",
-    "tree table",
-    "treetable",
-    "tree",
-    "table",
-    "ng"
-  ],
+  "keywords": [],
   "license": "MIT",
   "scripts": {
     "transpile": "ngc",
