@@ -14,7 +14,7 @@
                 [ngClass]="{'fa-check':isSelected(),'fa-minus':node.partialSelected}"></span>
         </div>
     </div>
-    <span *ngIf="!col.template" (click)="tdClicked(node.data, col.field)">{{resolveFieldData(node.data,col.field)}}</span>
+    <span *ngIf="!col.template" (click)="tdClicked(node, col)">{{resolveFieldData(node.data,col.field)}}</span>
     <!-- <ay-columnBodyTemplateLoader [column]="col" [rowData]="node" *ngIf="col.template"></ay-columnBodyTemplateLoader> -->
 </td>
 </div>

@@ -5,19 +5,7 @@ import { Component } from '@angular/core';
 
 @Component({
     selector: 'app-basic',
-    template: `
-    <input #gb type="text" pInputText size="50" placeholder="Global Search">
-    <ay-treeTable
-      [value]="nodes.data"
-      [globalFilter]="gb"
-      [rowStyleClass]="getRowStyleClass"
-      (onTdClick)="onTdClick($event)"
-    >
-        <ay-column field="name" header="Name"></ay-column>
-        <ay-column field="size" header="Size"></ay-column>
-        <ay-column field="type" header="Type"></ay-column>
-    </ay-treeTable>
-  `,
+    templateUrl: 'basic.component.html',
 })
 export class BasicTreeComponent {
     nodes = {
@@ -25,6 +13,7 @@ export class BasicTreeComponent {
             [
                 {
                     "data":{
+                        "id": '1',
                         "name":"Documents",
                         "size":"75kb",
                         "type":"Folder"
@@ -108,4 +97,7 @@ export class BasicTreeComponent {
     onTdClick(data) {
       console.log(data);
     }
+    // onNodeSelect(data) {
+    //   console.log(data);
+    // }
 }
