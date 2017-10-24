@@ -4,7 +4,7 @@
 # Tree Table component for Angular
 A tree table component for Angular, forked from [ng-treetable](https://www.npmjs.com/package/ng-treetable)
 
-# Please do not use this component! please use `ng-treetable` component, this component just add td click event for special demand。
+# Please do not use this component! use `ng-treetable` component instead of it, it just add td click event for special demand。
 # 请不要使用该组件，请使用`ng-treetable`组件，这个组件仅为特定项目添加了点击事件。
 
 ## Getting Started
