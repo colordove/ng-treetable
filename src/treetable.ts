@@ -10,6 +10,7 @@ import {Header, Footer, Column, TreeSharedModule} from './shared';
 import {TreeNode} from "./model";
 import {UITreeRow} from "./treerow";
 import {PaginatorModule} from "./paginator";
+import {ToNumberPipe} from './number.pipe';
 
 @Component({
     selector: 'ay-treeTable',
@@ -539,6 +540,6 @@ export class TreeTable {
 @NgModule({
     imports: [CommonModule,TreeSharedModule,PaginatorModule],
     exports: [TreeTable,TreeSharedModule,PaginatorModule],
-    declarations: [TreeTable,UITreeRow]
+    declarations: [TreeTable,UITreeRow,ToNumberPipe]
 })
 export class TreeTableModule { }

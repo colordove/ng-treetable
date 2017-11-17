@@ -7,7 +7,7 @@ import {TreeTable} from "./treetable";
 
 @Component({
     selector: '[pTreeRow]',
-    templateUrl: './treerow.html'
+    templateUrl: './treerow.html',
 })
 export class UITreeRow implements OnInit {
 
@@ -21,7 +21,9 @@ export class UITreeRow implements OnInit {
 
     @Input() labelCollapse: string = "Collapse";
 
-    constructor(@Inject(forwardRef(() => TreeTable)) public treeTable:TreeTable) {}
+    constructor(
+      @Inject(forwardRef(() => TreeTable)) public treeTable:TreeTable
+    ) {}
 
     ngOnInit() {
         this.node.parent = this.parentNode;

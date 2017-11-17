@@ -15,14 +15,14 @@ export class BasicTreeComponent {
                     "data":{
                         "id": '1',
                         "name":"Documents",
-                        "size":"75kb",
+                        "size":"78000",
                         "type":"Folder"
                     },
                     "children":[
                         {
                             "data":{
                                 "name":"Work",
-                                "size":"55kb",
+                                "size":"22121.43",
                                 "type":"Folder"
                             },
                             "children":[
