@@ -13,7 +13,17 @@ import {ToNumberPipe} from './number.pipe';
   selector: "ay-treeTable",
   templateUrl: "./treetable.html",
   styles: [
-    `
+    `.treetable-wrapper {
+      display: flex;
+      justify-content: flex-start;
+    }
+    .treetable-left {
+      width: 300px;
+      overflow-y: hidden;
+    }
+    .treetable-right {
+      width: calc(100% - 300px);
+    }
     .tree-table-body {
     }
     .toggle {
@@ -96,6 +106,7 @@ export class TreeTable {
   public loading: boolean;
   public stopFilterPropagation: boolean;
   public dataToRender: any[];
+  public tLeftDataToRender: any[];
   public filterTimeout: any;
   public filteredValue: any[];
   globalFilterFunction: any;
@@ -423,6 +434,7 @@ export class TreeTable {
   updateDataToRender(datasource) {
     if ((this.paginator || this.virtualScroll) && datasource) {
       this.dataToRender = [];
+      this.tLeftDataToRender = [];
       let startIndex: number = this.lazy ? 0 : this.first;
       let endIndex: number = this.virtualScroll
         ? this.first + this.rows * 2
@@ -438,6 +450,7 @@ export class TreeTable {
     } else {
       this.dataToRender = datasource;
     }
+    console.log(this.dataToRender);
 
     this.loading = false;
   }

@@ -21,6 +21,8 @@ export class UITreeRow implements OnInit {
 
     @Input() labelCollapse: string = "Collapse";
 
+    @Input() leftHeader = true;
+
     constructor(
       @Inject(forwardRef(() => TreeTable)) public treeTable:TreeTable
     ) {}

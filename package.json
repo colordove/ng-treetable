@@ -1,7 +1,7 @@
 {
   "name": "color_cat-ngx-treetable",
   "author": "color_cat <hujian201@gmail.com>",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Tree table component for angular 2+.",
   "main": "index.js",
   "repository": {

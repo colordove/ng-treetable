@@ -16,6 +16,12 @@ import {
       height: 300px;
       overflow-y: scroll;
     }
+    ::ng-deep .treetable-left .tree-table-body {
+      overflow-y: hidden;
+    }
+    ::ng-deep .treetable-left td{
+        width: 100%;
+    }
   `]
 })
 export class BasicTreeComponent {
