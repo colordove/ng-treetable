@@ -115,7 +115,9 @@ export class AppModule {}
 | selection          	| any     	| null     	| A single treenode instance or an array to refer to the selections.                                                                                                                                                                                                	|
 | style              	| string  	| null     	| Inline style of the component.                                                                                                                                                                                                                                    	|
 | styleClass         	| string  	| null     	| Style class of the component.                                                                                                                                                                                                                                     	|
+| hasToggle         	| boolean  	| false     | toggle button on table.                                                                                                                                                                                                                                     	|
 | metaKeySelection   	| boolean 	| true     	| Defines how multiple items can be selected, when true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically. 	|
+
 
 
 ## Events

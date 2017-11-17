@@ -6,10 +6,15 @@
       <table class="ui-widget-content">
           <thead>
               <tr class="ui-state-default">
-                  <th #headerCell *ngFor="let col of columns" [ngStyle]="col.style" [class]="col.styleClass"
+                  <th #headerCell *ngFor="let col of columns; let i = index;" [ngStyle]="col.style" [class]="col.styleClass"
                       [ngClass]="'ui-state-default ui-unselectable-text'"
                       [style.display]="col.hidden ? 'none' : 'table-cell'">
-                      <span class="ui-column-title" *ngIf="!col.headerTemplate">{{col.header}}</span>
+                      <span class="ui-column-title"
+                        *ngIf="!col.headerTemplate"
+                      >
+                        {{col.header}}
+                        <button  class="btn btn-xs btn-primary toggle" *ngIf="hasToggle && i === 0" (click)="toggle()">{{toggleText}}</button>
+                      </span>
                       <span class="ui-column-title" *ngIf="col.headerTemplate">
                           <ay-columnHeaderTemplateLoader [column]="col"></ay-columnHeaderTemplateLoader>
                       </span>

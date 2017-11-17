@@ -16,13 +16,14 @@ export class BasicTreeComponent {
                         "id": '1',
                         "name":"Documents",
                         "size":"78000",
-                        "type":"Folder"
+                        "type":"Folder",
                     },
+                    "expanded": true,
                     "children":[
                         {
                             "data":{
                                 "name":"Work",
-                                "size":"22121.43",
+                                "size":'121212',
                                 "type":"Folder"
                             },
                             "children":[
@@ -97,7 +98,4 @@ export class BasicTreeComponent {
     onTdClick(data) {
       console.log(data);
     }
-    // onNodeSelect(data) {
-    //   console.log(data);
-    // }
 }
