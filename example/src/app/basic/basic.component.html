@@ -1,14 +1,17 @@
 <input #gb type="text" pInputText size="50" placeholder="Global Search">
-<ay-treeTable
-  [value]="nodes.data"
-  selectionMode="single"
-  [(selection)]="selectedFile"
-  [globalFilter]="gb"
-  [rowStyleClass]="getRowStyleClass"
-  (onTdClick)="onTdClick($event)"
-  [hasToggle]="true"
->
-    <ay-column field="name" header="Name" id="1"></ay-column>
-    <ay-column field="size" header="Size" id="2"></ay-column>
-    <ay-column field="type" header="Type" id="3"></ay-column>
-</ay-treeTable>
+<div class="treetable">
+    <ay-treeTable
+    [value]="nodes.data"
+    selectionMode="single"
+    [(selection)]="selectedFile"
+    [globalFilter]="gb"
+    [rowStyleClass]="getRowStyleClass"
+    (onTdClick)="onTdClick($event)"
+    [hasToggle]="true"
+    [expanded]="true"
+  >
+      <ay-column field="name" header="Name" id="1"></ay-column>
+      <ay-column field="size" header="Size" id="2"></ay-column>
+      <ay-column field="type" header="Type" id="3"></ay-column>
+  </ay-treeTable>
+</div>

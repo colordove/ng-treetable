@@ -4,7 +4,7 @@
   </div>
   <div class="ui-treetable-tablewrapper">
       <table class="ui-widget-content">
-          <thead>
+          <thead class="tree-table-header">
               <tr class="ui-state-default">
                   <th #headerCell *ngFor="let col of columns; let i = index;" [ngStyle]="col.style" [class]="col.styleClass"
                       [ngClass]="'ui-state-default ui-unselectable-text'"
@@ -21,7 +21,7 @@
                   </th>
               </tr>
           </thead>
-          <tfoot *ngIf="hasFooter()">
+          <!-- <tfoot *ngIf="hasFooter()">
               <tr>
 
                 <td *ngFor="let col of columns" [ngStyle]="col.style" [class]="col.styleClass" [ngClass]="{'ui-state-default':true}">
@@ -31,14 +31,18 @@
                       </span>
                   </td>
               </tr>
-          </tfoot>
-          <tbody pTreeRow *ngFor="let node of dataToRender;let odd = odd;let even=even"
-                      [node]="node" [level]="0"
-                      [labelExpand]="labelExpand" [labelCollapse]="labelCollapse"
-                      class="ui-widget-content"
-                      [ngClass]="{'ui-treetable-even':even,'ui-treetable-odd':odd}"
-          ></tbody>
+          </tfoot> -->
       </table>
+        <div class="tree-table-body">
+          <table>
+            <tbody pTreeRow *ngFor="let node of dataToRender;let odd = odd;let even=even"
+                        [node]="node" [level]="0"
+                        [labelExpand]="labelExpand" [labelCollapse]="labelCollapse"
+                        class="ui-widget-content"
+                        [ngClass]="{'ui-treetable-even':even,'ui-treetable-odd':odd}"
+            ></tbody>
+          </table>
+        </div>
   </div>
   <ay-paginator [rows]="rows" [first]="first" [totalRecords]="totalRecords" [pageLinkSize]="pageLinks" styleClass="ui-paginator-bottom"
       (onPageChange)="paginate($event)" [rowsPerPageOptions]="rowsPerPageOptions" *ngIf="paginator"></ay-paginator>

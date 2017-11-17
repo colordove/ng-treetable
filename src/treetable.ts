@@ -13,7 +13,10 @@ import {ToNumberPipe} from './number.pipe';
   selector: "ay-treeTable",
   templateUrl: "./treetable.html",
   styles: [
-    `.toggle {
+    `
+    .tree-table-body {
+    }
+    .toggle {
       margin-left: 4px;
     }`
   ]
