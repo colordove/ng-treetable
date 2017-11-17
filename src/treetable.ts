@@ -14,7 +14,7 @@ import {ToNumberPipe} from './number.pipe';
   templateUrl: "./treetable.html",
   styles: [
     `.toggle {
-      margin-left: 10px;
+      margin-left: 4px;
     }`
   ]
 })
@@ -353,6 +353,8 @@ export class TreeTable {
     if (this.immutable) this.handleDataChange();
     if (this.expanded) {
       this.toggleText = '折叠';
+    } else {
+      this.toggleText = '展开';
     }
     // 打开/折叠
     function addExpaned(nodes) {
