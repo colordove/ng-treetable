@@ -4,7 +4,7 @@
   </div> -->
   <div class="treetable-wrapper">
     <div class="treetable-left">
-        <table class="ui-widget-content">
+        <table class="ui-widget-content" id="tree-table-header-left">
             <thead class="tree-table-header">
               <tr class="ui-state-default">
                 <ng-container *ngFor="let col of columns; let i = index;">
@@ -33,24 +33,26 @@
         </div>
     </div>
     <div class="ui-treetable-tablewrapper treetable-right">
-      <table class="ui-widget-content">
-        <thead class="tree-table-header">
-          <tr class="ui-state-default">
-            <ng-container *ngFor="let col of columns; let i = index;">
-                <th #headerCell *ngIf="i > 0" [ngStyle]="col.style" [class]="col.styleClass" [ngClass]="'ui-state-default ui-unselectable-text'"
-                    [style.display]="col.hidden ? 'none' : 'table-cell'">
-                    <span class="ui-column-title" *ngIf="!col.headerTemplate">
-                      {{col.header}}
-                      <button class="btn btn-xs btn-primary toggle" *ngIf="hasToggle && i === 0" (click)="toggle()">{{toggleText}}</button>
-                    </span>
-                    <span class="ui-column-title" *ngIf="col.headerTemplate">
-                      <ay-columnHeaderTemplateLoader [column]="col"></ay-columnHeaderTemplateLoader>
-                    </span>
-                  </th>
-            </ng-container>
-          </tr>
-        </thead>
-      </table>
+      <div id="tree-table-header-right">
+        <table class="ui-widget-content">
+          <thead class="tree-table-header">
+            <tr class="ui-state-default">
+              <ng-container *ngFor="let col of columns; let i = index;">
+                  <th #headerCell *ngIf="i > 0" [ngStyle]="col.style" [class]="col.styleClass" [ngClass]="'ui-state-default ui-unselectable-text'"
+                      [style.display]="col.hidden ? 'none' : 'table-cell'">
+                      <span class="ui-column-title" *ngIf="!col.headerTemplate">
+                        {{col.header}}
+                        <button class="btn btn-xs btn-primary toggle" *ngIf="hasToggle && i === 0" (click)="toggle()">{{toggleText}}</button>
+                      </span>
+                      <span class="ui-column-title" *ngIf="col.headerTemplate">
+                        <ay-columnHeaderTemplateLoader [column]="col"></ay-columnHeaderTemplateLoader>
+                      </span>
+                    </th>
+              </ng-container>
+            </tr>
+          </thead>
+        </table>
+      </div>
       <div class="tree-table-body" id="tree-table-body-right" (scroll)="scrollRight()">
         <table>
           <tbody pTreeRow *ngFor="let node of dataToRender;let odd = odd;let even=even" [node]="node" [level]="0" [labelExpand]="labelExpand"
