@@ -17,21 +17,11 @@ import {ToNumberPipe} from './number.pipe';
       display: flex;
       justify-content: flex-start;
     }
-    .treetable-left {
-      width: 300px;
-      overflow-y: hidden;
-      overflow-x: hidden;
-    }
     #tree-table-body-left {
       overflow-x: hidden;
     }
-    .treetable-right {
-      width: calc(100% - 300px);
-    }
-    .tree-table-body {
-    }
-    .ui-widget-content {
-      border-top: 0;
+    #tree-table-header-right {
+      overflow-x: hidden;
     }
     .toggle {
       margin-left: 4px;
