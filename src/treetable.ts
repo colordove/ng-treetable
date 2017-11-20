@@ -30,6 +30,9 @@ import {ToNumberPipe} from './number.pipe';
     }
     .tree-table-body {
     }
+    .ui-widget-content {
+      border-top: 0;
+    }
     .toggle {
       margin-left: 4px;
     }`
@@ -207,25 +210,35 @@ export class TreeTable {
 
     this.rowTouched = false;
   }
+  nodeToggle(status: string) {
+      if (status === '展开') {
+        this.expanded = true;
+        this.toggle();
+      } else {
+        this.expanded = false;
+        this.toggle();
+      }
+  }
+
+  // 打开/折叠
+  addExpaned(nodes: any, collpase: boolean) {
+    nodes.map(node => {
+      node.expanded = collpase;
+      if (node.children) {
+        this.addExpaned(node.children, collpase);
+      }
+    });
+  }
 
   toggle() {
-    // 打开/折叠
-    function addExpaned(nodes: any, collpase: boolean) {
-      nodes.map(node => {
-        node.expanded = collpase;
-        if (node.children) {
-          addExpaned(node.children, collpase);
-        }
-      });
-    }
     if (!this.expanded) {
       this.toggleText = "折叠";
-      addExpaned(this.value, true);
-      this.expanded = !this.expanded;
+      this.addExpaned(this.value, true);
+      this.expanded = true;
     } else {
       this.toggleText = "展开";
-      addExpaned(this.value, false);
-      this.expanded = !this.expanded;
+      this.addExpaned(this.value, false);
+      this.expanded = false;
     }
     this.toggleAll.emit();
   }

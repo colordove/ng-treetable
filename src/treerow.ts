@@ -32,12 +32,30 @@ export class UITreeRow implements OnInit {
         }
     }
     toggle(event: Event) {
+        let expanded = true;
+        function isAllExpanded(nodes: any) {
+          nodes.map(node => {
+            if (node.children && !node.expanded) {
+                expanded = false;
+            }
+            if (node.children) {
+                isAllExpanded(node.children);
+            }
+          });
+          return expanded;
+        }
         if(this.node.expanded)
             this.treeTable.onNodeCollapse.emit({originalEvent: event, node: this.node});
         else
             this.treeTable.onNodeExpand.emit({originalEvent: event, node: this.node});
 
         this.node.expanded = !this.node.expanded;
+
+        if (!this.treeTable.value[0].expanded) {
+            this.treeTable.nodeToggle('展开');
+        } else if (isAllExpanded(this.treeTable.value)) {
+            this.treeTable.nodeToggle('折叠');
+        }
 
         event.preventDefault();
     }
