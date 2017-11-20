@@ -113,9 +113,9 @@ export class TreeTable {
   constructor(public renderer: Renderer) {}
   scrollRight() {
       const top = document.getElementById("tree-table-body-right").scrollTop;
-      // var b = document.getElementById("t_r_content").scrollLeft;
+      const left = document.getElementById("tree-table-body-right").scrollLeft;
       document.getElementById("tree-table-body-left").scrollTop = top;
-      // document.getElementById("t_r_t").scrollLeft = b;
+      document.getElementById("tree-table-header-right").scrollLeft = left;
   }
   onRowClick(event: MouseEvent, node: TreeNode, col: any) {
     let eventTarget = <Element>event.target;
