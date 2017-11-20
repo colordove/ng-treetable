@@ -22,7 +22,7 @@
             </tr>
           </thead>
         </table>
-        <div class="tree-table-body">
+        <div class="tree-table-body" id="tree-table-body-left">
             <table>
               <tbody pTreeRow *ngFor="let node of dataToRender;let odd = odd;let even=even" [node]="node" [level]="0" [labelExpand]="labelExpand"
                 [labelCollapse]="labelCollapse" class="ui-widget-content" [ngClass]="{'ui-treetable-even':even,'ui-treetable-odd':odd}"
@@ -51,7 +51,7 @@
           </tr>
         </thead>
       </table>
-      <div class="tree-table-body">
+      <div class="tree-table-body" id="tree-table-body-right" (scroll)="scrollRight()">
         <table>
           <tbody pTreeRow *ngFor="let node of dataToRender;let odd = odd;let even=even" [node]="node" [level]="0" [labelExpand]="labelExpand"
             [labelCollapse]="labelCollapse" class="ui-widget-content" [ngClass]="{'ui-treetable-even':even,'ui-treetable-odd':odd}"

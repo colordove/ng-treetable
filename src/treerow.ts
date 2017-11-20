@@ -1,6 +1,3 @@
-/**
- * Created by andrew.yang on 3/22/2017.
- */
 import {Component, Input, OnInit, Inject, forwardRef, SimpleChanges} from "@angular/core";
 import {TreeNode} from "./model";
 import {TreeTable} from "./treetable";

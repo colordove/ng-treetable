@@ -20,6 +20,10 @@ import {ToNumberPipe} from './number.pipe';
     .treetable-left {
       width: 300px;
       overflow-y: hidden;
+      overflow-x: hidden;
+    }
+    #tree-table-body-left {
+      overflow-x: hidden;
     }
     .treetable-right {
       width: calc(100% - 300px);
@@ -114,6 +118,12 @@ export class TreeTable {
   toggleText: string;
 
   constructor(public renderer: Renderer) {}
+  scrollRight() {
+      const top = document.getElementById("tree-table-body-right").scrollTop;
+      // var b = document.getElementById("t_r_content").scrollLeft;
+      document.getElementById("tree-table-body-left").scrollTop = top;
+      // document.getElementById("t_r_t").scrollLeft = b;
+  }
   onRowClick(event: MouseEvent, node: TreeNode, col: any) {
     let eventTarget = <Element>event.target;
     if (
@@ -364,6 +374,8 @@ export class TreeTable {
 
   ngOnInit() {
     const This = this;
+    // const rightTableHeight = document.getElementById("tree-table-body-right") + 'px';
+    // document.getElementById("tree-table-body-left").setAttribute('height', rightTableHeight);
     if (this.immutable) this.handleDataChange();
     if (this.expanded) {
       this.toggleText = '折叠';
